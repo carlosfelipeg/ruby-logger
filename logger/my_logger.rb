@@ -20,7 +20,7 @@ class MyLogger
     message = create_message("WARN", message, tag: tag)
     unless @warn_size.nil?
       output = nil
-      enque_warn_message(message)
+      enqueue_warn_message(message)
       decrement_warn
       output = show_warn_buffer if @warn_size_aux.zero?
       output
@@ -34,7 +34,7 @@ class MyLogger
     message = create_message("ERROR", message, tag: tag)
     unless @error_size.nil?
       output = nil
-      enque_error_message(message)
+      enqueue_error_message(message)
       decrement_error
       output = show_error_buffer if @error_size_aux.zero?
       output
@@ -68,7 +68,7 @@ class MyLogger
     messages
   end
 
-  def enque_warn_message(message)
+  def enqueue_warn_message(message)
     @warn_messages << message
   end
 
@@ -91,7 +91,7 @@ class MyLogger
     message_output
   end
 
-  def enque_error_message(message)
+  def enqueue_error_message(message)
     @error_messages << message
   end
 
